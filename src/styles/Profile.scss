@@ -1,0 +1,134 @@
+.profile__container {
+  width: 100vw;
+  height: calc(100vh - 80px);
+  background: linear-gradient(rgba(0, 0, 0, .3),rgba(0, 0, 0, 0.3)), url("/images/chelsea-conference-room2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.info__container {
+  width: 100vw;
+  height: calc(100vh - 80px);
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("/images/chelsea-dressing-room2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.profile__form-bg {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 500px;
+  height: 500px;
+  padding: 20px 40px 0;
+  top: 140px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgb(233, 233, 233);
+  border: 5px solid #001487;
+  border-radius: 20px;
+  .profile__form-logo {
+    width: 90px;
+    margin: 0 auto 20px;
+  }
+  .profile__title {
+    font-size: 22px;
+    color: #001487;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .profile__form-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    .profileCard-form {
+      width: 170px;
+    }
+    .profile-default {
+      position: absolute;
+      left: 10px;
+      top: 60px;
+      width: 150px;
+    }
+
+    .profile__form-editForm {
+      display: flex;
+      flex-direction: column;
+      .displayName__title {
+        padding: 0 8px;
+        color: gray;
+        margin-bottom: 6px;
+      }
+      .editForm {
+        margin-bottom: 16px;
+        border: none;
+        outline: none;
+        padding: 2px 4px 2px 8px;
+        color: #001487;
+        font-weight: 600;
+        border-radius: 6px;
+        transition: all .2s ease;
+        &.attach-Img {
+          cursor: pointer;
+        }
+        &:hover {
+          &::placeholder {
+            color: tomato;
+          }
+        }
+        &::placeholder {
+          font-weight: 400;
+        }
+        .font-icon {
+          margin-right: 5px;
+        }
+      }
+      .updateBtn {
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        background-color: #001487;
+        color: #fff;
+        text-align: center;
+        line-height: 28px;
+        transition: all .2s ease;
+        &:hover {
+          color: rgb(253, 253, 0);
+        }
+      }
+
+      .profileImg__attach {
+        position: absolute;
+        left: 4px;
+        top: 36px;
+        img {
+          width: 170px;
+        }
+        .profileImg__clear {
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 40px;
+          height: 40px;
+          text-align: center;
+          line-height: 40px;
+          font-size: 20px;
+          color: rgb(253, 253, 0);
+          transition: all .2s ease;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}

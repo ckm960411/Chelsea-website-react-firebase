@@ -1,0 +1,91 @@
+.addInfo__form {
+  .inputForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 200px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 3px 6px 3px;
+    color: #001487;
+    cursor: default;
+    border-radius: 5px;
+    &:hover {
+      &::placeholder {
+        color: tomato;
+      }
+    }
+    &::placeholder {
+      font-weight: 300;
+      color: gray;
+    }
+    &.attach-input-btn {
+      cursor: pointer;
+      transition: all .2s ease;
+      &:hover {
+        color: tomato;
+      }
+    }
+  }
+  .registerBtn {
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: #001487;
+    color: #fff;
+    padding: 2px;
+    transition: all .2s ease;
+    &:hover {
+      color: rgb(255, 255, 0);
+    }
+  }
+}
+
+.attachment__attach {
+  position: absolute;
+  left: 4px;
+  top: 36px;
+  img {
+    width: 170px;
+  }
+  .attachment__clear {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #001487;
+    transition: all .2s ease;
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.clearBtn {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 120px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #001487;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: all .2s ease;
+  &:hover {
+    color: red;
+  }
+}

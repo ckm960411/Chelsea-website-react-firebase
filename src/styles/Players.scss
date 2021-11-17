@@ -1,0 +1,32 @@
+.players__container {
+  background: rgb(233, 233, 233);
+  min-height: calc(100vh - 80px);
+  padding: 60px;
+  .position__btns {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 60px;
+    .position__btn {
+      width: 130px;
+      height: 40px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background-color: #001487;
+      color: #fff;
+      cursor: pointer;
+      transition: all .2s ease;
+      &:hover {
+        color: rgb(255, 255, 0);
+      }
+    }
+  }
+
+  .players {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 180px);
+    justify-content: center;
+    grid-gap: 60px;
+  }
+}

@@ -1,0 +1,27 @@
+.player-imgs {
+  position: relative;
+  display: inline-block;
+  .profile-card {
+    width: 260px;
+  }
+  .player-profileImg {
+    width: 240px;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+  }
+  .player-name {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 280px;
+    width: 210px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #001487;
+    color: #fff;
+  }
+}

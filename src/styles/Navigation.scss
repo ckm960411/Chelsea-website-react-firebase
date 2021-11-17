@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbar__container {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #001487;
+  z-index: 999; // 최상단
+  .navbar__nav-logo {
+    width: 60px;
+    height: 60px;
+  }
+  .navbar__navLinks {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 30px;
+    .navbar__navLink {
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-right: 10px;
+      transition: all 2s ease;
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        transition: all .2s ease;
+        &:hover {
+          color: rgb(255, 255, 0);
+        }
+      }
+    }
+  }
+  .loginBtn {
+    width: 90px;
+    height: 40px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: all .2s ease;
+    background: transparent;
+    cursor: Pointer;
+    &:hover {
+      color: tomato;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      transition: all .2s ease;
+      &:hover {
+        color: tomato;
+      }
+    }
+  }
+  .navbar__input {
+    height: 30px;
+    padding: 5px;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #fff;
+    &.inputForm {
+      border-bottom: 1px solid #fff;
+      padding-bottom: 0;
+      &::placeholder {
+        color: rgb(184, 184, 184);
+        font-size: 14px;
+      }
+    }
+    &.inputBtn {
+      font-size: 18px;
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+}

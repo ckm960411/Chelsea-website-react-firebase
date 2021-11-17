@@ -1,0 +1,71 @@
+.info__container {
+  width: 100vw;
+  height: calc(100vh - 80px);
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("/images/chelsea-dressing-room2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form__bg {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 500px;
+  height: 500px;
+  padding: 20px 40px 0;
+  top: 140px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgb(233, 233, 233);
+  border: 5px solid #001487;
+  border-radius: 20px;
+  .form__logo {
+    width: 90px;
+    margin: 0 auto 20px;
+  }
+  
+  .editing__form {
+    display: flex;
+    .editing__form-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 0 8px 0;
+      color: #001487;
+      font-size: 16px;
+      font-weight: 600;
+      background: transparent;
+      border-bottom: 1px solid #001487;
+      &:hover {
+        &::placeholder {
+          color: tomato;
+        }
+      }
+      &::placeholder {
+        font-weight: 400;
+      }
+    }
+    .editing__form-searchBtn {
+      width: 40px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 20px;
+      background:transparent;
+    }
+  }
+
+  .form__form-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    .playerCard-form {
+      width: 180px;
+    }
+  }
+}
