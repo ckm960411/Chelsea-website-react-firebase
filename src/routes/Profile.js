@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { updateProfile } from "@firebase/auth";
-import { authService, storageService } from "fireBase";
+import { authService, dbService, storageService } from "fireBase";
 import "styles/Profile.scss";
 import chelseaLogoMd from "images/chelsea-logo-300.png";
 import profileCard from "images/profile-card.png";
@@ -14,6 +14,7 @@ import {
   ref,
   uploadString,
 } from "@firebase/storage";
+import { collection, doc, getDoc, getDocs, query, updateDoc, where } from "@firebase/firestore";
 
 function Profile({ userObj, setIsProfile, refreshUser }) {
   const fileInputRef = useRef();
@@ -52,7 +53,18 @@ function Profile({ userObj, setIsProfile, refreshUser }) {
     if (ok === false) return;
     if (userObj.photoURL !== null) { // 기존의 photoURL 이 있다면 storage 에서 지우고 프로필에서도 url 을 지워줌
       clearAttachment()
-        .then(async () => await updateProfile(authService.currentUser, { photoURL: "", }) )
+        .then(async () => {
+          await updateProfile(authService.currentUser, { photoURL: "", })
+          const userCollectDocRef = collection(dbService, "users")
+          const q = query(userCollectDocRef, where("userUid", "==", authService.currentUser.uid))
+          const querySnapshot = await getDocs(q)
+          querySnapshot.forEach( async (document) => {
+            const userDocRef = doc(dbService, "users", document.id)
+            await updateDoc(userDocRef, {
+              userPhotoURL: ""
+            })
+          })
+        })
     }
     setProfileImg(null);
     fileInputRef.current.value = null;
@@ -63,7 +75,19 @@ function Profile({ userObj, setIsProfile, refreshUser }) {
     if (userObj.displayName !== newDisplayName && newDisplayName !== "") {
       await updateProfile(authService.currentUser, {
         displayName: newDisplayName,
-      }).then(() => alert('닉네임 업데이트 성공!'))
+      }).then( async () => {
+        alert('닉네임 업데이트 성공!')
+        // firestore 'users' 컬렉션에 유저 닉네임 업데이트
+        const userCollectDocRef = collection(dbService, "users")
+        const q = query(userCollectDocRef, where("userUid", "==", authService.currentUser.uid))
+        const querySnapshot = await getDocs(q)
+        querySnapshot.forEach( async (document) => {
+          const userDocRef = doc(dbService, "users", document.id)
+          await updateDoc(userDocRef, {
+            userDisplayName: newDisplayName
+          })
+        })
+      })
       refreshUser()
     }
     // storage 에 프로필 이미지 저장
@@ -75,11 +99,20 @@ function Profile({ userObj, setIsProfile, refreshUser }) {
       );
       await uploadString(attachmentRef, profileImg, "data_url");
       const profileImgURL = await getDownloadURL(attachmentRef);
-      console.log("profileImgURL: ", profileImgURL);
       await updateProfile(authService.currentUser, {
         photoURL: profileImgURL,
-      }).then(() => {
-        alert("프로필이미지 업데이트 성공!")
+      }).then( async () => {
+        alert('프로필 이미지 업데이트 성공!')
+        // firestore 'users' 컬렉션에 유저 프로필 이미지 URL 업데이트
+        const userCollectDocRef = collection(dbService, "users")
+        const q = query(userCollectDocRef, where("userUid", "==", authService.currentUser.uid))
+        const querySnapshot = await getDocs(q)
+        querySnapshot.forEach( async (document) => {
+          const userDocRef = doc(dbService, "users", document.id)
+          await updateDoc(userDocRef, {
+            userPhotoURL: profileImgURL
+          })
+        })
       });
     }
     refreshUser();

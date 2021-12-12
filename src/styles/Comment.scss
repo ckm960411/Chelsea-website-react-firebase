@@ -1,0 +1,108 @@
+@import '~antd/dist/antd.css';
+
+.comment__btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+.comment__btn {
+  border: none;
+  outline: none;
+  background-color: #001487;
+  color: #fff;
+  padding: 4px 10px 4px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-left: 20px;
+}
+
+.comment__container {
+  border-top: 4px solid;
+  border-image: linear-gradient(to right, #001487, #001487, #001487, #ffd300, #ffd300);
+  border-image-slice: 1;
+  margin-top: 20px;
+}
+
+.commentForm__container {
+  display: flex;
+  margin-top: 20px;
+  .commentForm__profileImg {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #e9e9e9;
+  }
+  .commentForm__description {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 20px;
+    .commentForm__displayName {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .commentForm__date {
+      font-size: 14px;
+      color: gray;
+    }
+    .commentForm__comment {
+      font-size: 18px;
+      font-weight: 400;
+      margin-right: 20px;
+      margin-bottom: 6px;
+    }
+    .commentForm__like {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      .like__icon {
+        font-size: 18px;
+        margin-right: 6px;
+        cursor: pointer;
+        &.liked {
+          color: red;
+        }
+      }
+    }
+
+    .editBtns {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      .edit__cancelBtn, .edit__editBtn {
+        border: 1px solid rgb(210, 210, 210);
+        outline: none;
+        background-color: #f0f0f0;
+        font-size: 14px;
+        // color: #fff;
+        border-radius: 4px;
+        padding: 4px 12px 4px;
+      }
+      .edit__editBtn {
+        margin-left: 20px;
+      }
+    }
+  }
+  
+  .moreBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #e9e9e9;
+  }
+}
+.ant-dropdown-menu-title-content > div {
+  display: flex;
+  align-items: center;
+  .anticon {
+    font-size: 16px;
+    margin-right: 6px;
+  }  
+}

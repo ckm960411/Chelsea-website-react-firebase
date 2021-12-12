@@ -7,7 +7,7 @@ function PlayerCard(props) {
   return (
     <Link
       to={`/players/${id}`}
-      state={{ playerName, backNumber, position, birthDate, nation, playerImg }}
+      // state={{ playerName, backNumber, position, birthDate, nation, playerImg }}
       className="player__card"
     >
       <div className="playerCard__container">

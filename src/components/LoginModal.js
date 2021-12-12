@@ -1,13 +1,15 @@
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
-import "styles/LoginModal.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "@firebase/auth";
-import { authService } from "fireBase";
+import { authService, dbService } from "fireBase";
+import { addDoc, collection } from "@firebase/firestore";
+import "styles/LoginModal.scss";
+import chelseaLogo from "images/chelsea-logo-300.png"
 
 function LoginModal({ show, onHide, setIsLogin }) {
   const [email, setEmail] = useState("");
@@ -27,8 +29,16 @@ function LoginModal({ show, onHide, setIsLogin }) {
     if (newAccount) {
       // 계정 생성
       createUserWithEmailAndPassword(authService, email, password)
-        .then(() => {
+        .then( async () => {
           alert('회원가입이 완료되었습니다!💙')
+          console.log(authService.currentUser)
+          const newUserObj = { // 새로 가입된 회원정보를 firestore 'users' 컬렉션에 저장
+            userUid: authService.currentUser.uid,
+            userDisplayName: authService.currentUser.displayName,
+            userPhotoURL: authService.currentUser.photoURL,
+            userEmail: authService.currentUser.email
+          }
+          await addDoc(collection(dbService, "users"), newUserObj)
           setNewAccount(false)
         })
         .catch((err) => console.log(err.resultMessage));
@@ -57,7 +67,7 @@ function LoginModal({ show, onHide, setIsLogin }) {
       <div className="auth__form-container">
         <div className="auth__container">
           <img
-            src="../../images/chelsea-logo-300.png"
+            src={chelseaLogo}
             alt="chelsea-logo"
             className="auth__logo"
             style={{ width: 100 }}

@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "styles/Navigation.scss";
 import chelseaLogo from "images/chelsea-logo.png"
+import anonymous from "images/anonymous2.png"
 
-function Navigation({ isLogin, setModalShow, isProfile, onLogOutClick }) {
+function Navigation({ isLogin, setModalShow, isProfile, onLogOutClick, userObj }) {
   const navigate = useNavigate();
 
   return (
@@ -50,7 +51,9 @@ function Navigation({ isLogin, setModalShow, isProfile, onLogOutClick }) {
               Log out
             </button>
           ) : (
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile">
+              <img src={userObj.photoURL ? userObj.photoURL : anonymous } alt="profile-img" className="nav__profileImg" />
+            </Link>
           )}
         </>
       ) : (

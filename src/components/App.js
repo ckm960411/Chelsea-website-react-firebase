@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import LoginModal from "./LoginModal";
 import AppRouter from "components/Router";
-import "styles/App.scss";
 import { authService } from "fireBase";
 import { onAuthStateChanged, updateProfile } from 'firebase/auth'
+import "styles/App.scss";
 
 function App() {
   const [init, setInit] = useState(false)

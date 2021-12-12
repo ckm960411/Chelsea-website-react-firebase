@@ -12,15 +12,16 @@ import {
 } from "@firebase/firestore";
 import { dbService } from "fireBase";
 import "styles/PlayersInfo.scss";
-import chelseaLogoMd from "images/chelsea-logo-300.png"
-import fifaCard from "images/fifa-card.png"
+import chelseaLogoMd from "images/chelsea-logo-300.png";
+import fifaCard from "images/fifa-card.png";
+import { message } from "antd";
 
 function PlayersInfo({ userObj }) {
-  const searchPlayerRef = useRef()
+  const searchPlayerRef = useRef();
   const [search, setSearch] = useState("");
   const [searchedObj, setSearchedObj] = useState({});
   const [playerDocId, setPlayerDocId] = useState("");
-  const [editing, setEditing] = useState(false)
+  const [editing, setEditing] = useState(false);
 
   const onChange = (event) => {
     setSearch(event.target.value);
@@ -32,13 +33,11 @@ function PlayersInfo({ userObj }) {
     const q = query(playersRef, where("playerName", "==", searchWord));
     const querySnapshot = await getDocs(q);
     if (querySnapshot.docs.length < 1) {
-      alert(
-        "원하는 선수 정보를 찾지 못 했습니다. 정확한 선수 풀네임을 입력하세요!"
-      );
+      message.info( "원하는 선수 정보를 찾지 못 했습니다. 정확한 선수 풀네임을 입력하세요!");
       setSearchedObj({});
-      setPlayerDocId("")
-      setEditing(false)
-      searchPlayerRef.current.value = ""
+      setPlayerDocId("");
+      setEditing(false);
+      searchPlayerRef.current.value = "";
       return;
     }
     querySnapshot.forEach((document) => {
@@ -62,17 +61,13 @@ function PlayersInfo({ userObj }) {
   };
 
   useEffect(() => {
-    searchPlayerRef.current.value = ""
-  }, [editing])
+    searchPlayerRef.current.value = "";
+  }, [editing]);
 
   return (
     <div className="info__container">
       <div className="form__bg">
-        <img
-          src={chelseaLogoMd}
-          alt="chelsea-logo"
-          className="form__logo"
-        />
+        <img src={chelseaLogoMd} alt="chelsea-logo" className="form__logo" />
         <form className="editing__form" onSubmit={onSearch}>
           <input
             type="text"
@@ -87,11 +82,7 @@ function PlayersInfo({ userObj }) {
           </button>
         </form>
         <div className="form__form-container">
-          <img
-            src={fifaCard}
-            alt="player-card"
-            className="playerCard-form"
-          />
+          <img src={fifaCard} alt="player-card" className="playerCard-form" />
           <AddPlayerForm
             userObj={userObj}
             searchedObj={searchedObj}
