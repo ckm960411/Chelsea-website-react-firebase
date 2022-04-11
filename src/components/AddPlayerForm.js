@@ -52,7 +52,7 @@ function AddPlayerForm(props) {
       setAttachment("");
       setEditing(false);
     };
-  }, [searchedObj]);
+  }, [searchedObj, setEditing]);
 
   const onChange = (event) => {
     const {
