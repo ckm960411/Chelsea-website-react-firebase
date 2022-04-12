@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Chelsea Players List (미완)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 메인화면, RESULT
 
-## Available Scripts
+![첼시리스트썸네일](./src/images/첼시리스트썸네일.png)
 
-In the project directory, you can run:
+# 📑 프로젝트의 목적
+1. React 를 이용해서 받아온 데이터로 선수의 정보를 반복 출력할 수 있는 구조 만들기
+2. 포지션을 클릭하면 해당 포지션별로 선수들 목록 정렬시키기
+3. 신규 선수가 있을 시 선수를 등록하기
+4. 선수마다 댓글을 달아 사용자들간의 의견 나누기
 
-### `yarn start`
+# 🛠 사용된 기술 스택
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React
+- 서버 및 DB: Fireabase(v9)
+- UI 및 스타일: Sass, react-bootstrap, styled-components
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# 🔵 주요 기능
 
-### `yarn test`
+### 1. 회원가입 및 로그인
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![첼시리스트-로그인](./src/images/%EC%B2%BC%EC%8B%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%A1%9C%EA%B7%B8%EC%9D%B8.gif)
+Firebase 로 회원가입 및 로그인 구현
 
-### `yarn build`
+### 2.. 선수단 전체 조회 및 표지션별 정렬, 선수단 상세페이지 조회 (미완)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![첼시리스트-선수조회](./src/images/%EC%B2%BC%EC%8B%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%84%A0%EC%88%98%EC%A1%B0%ED%9A%8C.gif)
+포지션 버튼 클릭시 해당 포지션별로 선수 리스트 정렬
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3. 선수별 댓글 CRUD 및 댓글 좋아요 기능
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![첼시리스트-댓글CRUD](./src/images/%EC%B2%BC%EC%8B%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%8C%93%EA%B8%80.gif)
+Firebase DB 에 저장된 댓글 조회/작성/수정/삭제와 좋아요/취소 기능 구현
 
-### `yarn eject`
+### 4. 선수 정보 신규 등록
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![첼시리스트-신규등록](./src/images/%EC%B2%BC%EC%8B%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%84%A0%EC%88%98%EB%93%B1%EB%A1%9D.gif)
+Firebase DB 에 신규 선수 정보를 새로 등록하면 DB 에 저장되고 선수 리스트에 반영
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 5. 프로필 수정 기능
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![첼시리스트-프로필수정](./src/images/%EC%B2%BC%EC%8B%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%94%84%EB%A1%9C%ED%95%84%EC%88%98%EC%A0%95.gif)
+사용자의 닉네임과 프로필 이미지 수정사항을 Firebase DB 에 반영
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# ✍️ 느낀점, 감상 
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+이전에 html, css, JS 로 첼시 리스트를 구현했던 것을 확장해서 파이어베이스 DB 에 저장되어 있는 선수 데이터를 컴포넌트로 반복출력하는 것을 해본 프로젝트였다. 파이어베이스로 간단한 회원가입과 로그인을 실습해볼 수 있었고, 어떻게 하나의 컴포넌트로 선수데이터를 반복출력할 지를 고민하여 만들었던 프로젝트였다. 미완성으로 끝났지만 꽤 의미가 깊은 프로젝트였다.
